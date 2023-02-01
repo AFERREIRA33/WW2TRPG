@@ -29,18 +29,22 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Select.select)
         {
-            playerMove();
-        }
-        if (Math.Round(transform.position.x, 1) == destination.x && Math.Round(transform.position.z, 1) == destination.z && !gridCreate)
-        {
-            transform.eulerAngles = new Vector3(0f,0f,0f);
-            transform.position = new Vector3((float)Math.Round(transform.position.x, 1), transform.position.y, (float)Math.Round(transform.position.z, 1));
-            MoveGrid();
-            gridCreate = true;
+            if (Input.GetMouseButtonDown(0))
+            {
+                playerMove();
+            }
+            if (Math.Round(transform.position.x, 1) == destination.x && Math.Round(transform.position.z, 1) == destination.z && !gridCreate)
+            {
+                transform.eulerAngles = new Vector3(0f, 0f, 0f);
+                transform.position = new Vector3((float)Math.Round(transform.position.x, 1), transform.position.y, (float)Math.Round(transform.position.z, 1));
+                MoveGrid();
+                gridCreate = true;
 
+            }
         }
+        
         
     }
     private void MoveGrid()
