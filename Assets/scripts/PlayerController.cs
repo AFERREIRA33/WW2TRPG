@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        if (Select.select)
+        {
             if (Input.GetMouseButtonDown(0))
             {
                 playerMove();
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
                 gridCreate = true;
 
             }
+        }
         
     }
     private void MoveGrid()
