@@ -6,7 +6,7 @@ public class Select : MonoBehaviour
 {
     private Renderer render;
     public bool action;
-    public static bool select;
+    public bool select;
     void Start()
     {
         action = true;
@@ -35,7 +35,7 @@ public class Select : MonoBehaviour
         {
             select = true;
             action = false;
-            GetComponent<Player_Luc>().enabled = true;
+            GetComponent<PlayerController>().enabled = true;
         }
     }
     private void OnMouseExit()

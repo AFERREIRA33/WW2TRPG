@@ -11,6 +11,8 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+    public Select s;
+
     public Camera cam;
     public Transform planeMove;
     public int move;
@@ -20,28 +22,27 @@ public class PlayerController : MonoBehaviour
     private Vector3 mousePosition;
     public Vector3 destination;
 
-    private Plane plane;
-    private int name = 0;
+    private int nameGrid = 0;
     private bool gridCreate = false;
     void Start()
     {
-        
+        destination = transform.position;
     }
     void Update()
     {
-        if (Select.select)
+        if (s.select)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                playerMove();
-            }
             if (Math.Round(transform.position.x, 1) == destination.x && Math.Round(transform.position.z, 1) == destination.z && !gridCreate)
             {
                 transform.eulerAngles = new Vector3(0f, 0f, 0f);
                 transform.position = new Vector3((float)Math.Round(transform.position.x, 1), transform.position.y, (float)Math.Round(transform.position.z, 1));
                 MoveGrid();
                 gridCreate = true;
-
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                playerMove();
+                s.select = false;
             }
         }
         
@@ -80,15 +81,15 @@ public class PlayerController : MonoBehaviour
         if (wP.x >= 0 && wP.z >= 0 && wP.x < grid.height && wP.z < grid.width)
         {
             Transform obj = Instantiate(planeMove, wP, Quaternion.identity);
-            obj.name = "moveCell" + name;
+            obj.name = "moveCell" + nameGrid;
         }
-        name++;
+        nameGrid++;
     }
     private void deleteGridB()
     {
-        GameObject obj = GameObject.Find("moveCell" + name);
+        GameObject obj = GameObject.Find("moveCell" + nameGrid);
         Destroy(obj);
-        name--;
+        nameGrid--;
     }
     private void playerMove()
     {
@@ -101,14 +102,14 @@ public class PlayerController : MonoBehaviour
             {
                 if (hit.transform.name.Contains("moveCell"))
                 {
-                    Vector3 a = new Vector3(Mathf.Round(mousePosition.x), 0.5f, Mathf.Round(mousePosition.z));
-                    destination = a;
-                    agent.SetDestination(a);
-                    while (name > 0 || GameObject.Find("moveCell" + name))
+                    destination = new Vector3(Mathf.Round(mousePosition.x), 0.5f, Mathf.Round(mousePosition.z));
+                    
+                    agent.SetDestination(destination);
+                    while (nameGrid > 0 || GameObject.Find("moveCell" + nameGrid))
                     {
                         deleteGridB();
                     }
-                    name = 0;
+                    nameGrid = 0;
                     gridCreate = false;
                 }
             }
