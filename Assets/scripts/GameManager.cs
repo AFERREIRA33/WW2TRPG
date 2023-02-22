@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public int perso_player = 10;
     public int perso_enemy = 10;
+    public bool isSelect = false;
     void Start()
     {
         
