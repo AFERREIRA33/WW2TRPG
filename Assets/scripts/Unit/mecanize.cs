@@ -13,10 +13,10 @@ public class mecanize : MonoBehaviour
 
     public mecanize()
     {
-        Deplacement = 5;
-        Pv = 15;
-        Atk = 7;
-        Def = 4;
+        Deplacement = 10;
+        Pv = 10;
+        Atk = 8;
+        Def = 2;
         MaxPv = Pv;
 
     }
@@ -29,5 +29,15 @@ public class mecanize : MonoBehaviour
         Def = def;
         MaxPv = maxpv;
 
+    }
+
+    public void setPv(int damage)
+    {
+        if (damage <= 0)
+        {
+            damage = 0;
+        }
+        Debug.Log(damage);
+        Pv -= damage;
     }
 }

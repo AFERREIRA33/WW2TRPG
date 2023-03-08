@@ -13,10 +13,10 @@ public class artillerie : MonoBehaviour
 
     public artillerie()
     {
-        Deplacement = 5;
-        Pv = 15;
-        Atk = 7;
-        Def = 4;
+        Deplacement = 2;
+        Pv = 17;
+        Atk = 10;
+        Def = 5;
         MaxPv = Pv;
 
     }
@@ -29,5 +29,15 @@ public class artillerie : MonoBehaviour
         Def = def;
         MaxPv = maxpv;
 
+    }
+
+    public void setPv(int damage)
+    {
+        if (damage <= 0)
+        {
+            damage = 0;
+        }
+        Debug.Log(damage);
+        Pv -= damage;
     }
 }

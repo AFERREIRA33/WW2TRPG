@@ -13,10 +13,10 @@ public class panzer : MonoBehaviour
 
     public panzer()
     {
-        Deplacement = 5;
-        Pv = 15;
-        Atk = 7;
-        Def = 4;
+        Deplacement = 7;
+        Pv = 30;
+        Atk = 12;
+        Def = 3;
         MaxPv = Pv;
 
     }
@@ -29,5 +29,15 @@ public class panzer : MonoBehaviour
         Def = def;
         MaxPv = maxpv;
 
+    }
+
+    public void setPv(int damage)
+    {
+        if (damage <= 0)
+        {
+            damage = 0;
+        }
+        Debug.Log(damage);
+        Pv -= damage;
     }
 }

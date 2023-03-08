@@ -14,9 +14,9 @@ public class healer : MonoBehaviour
     public healer()
     {
         Deplacement = 5;
-        Pv = 15;
-        Atk = 7;
-        Def = 4;
+        Pv = 20;
+        Atk = 0;
+        Def = 2;
         MaxPv = Pv;
 
     }
@@ -29,5 +29,15 @@ public class healer : MonoBehaviour
         Def = def;
         MaxPv = maxpv;
 
+    }
+
+    public void setPv(int damage)
+    {
+        if (damage <= 0)
+        {
+            damage = 0;
+        }
+        Debug.Log(damage);
+        Pv -= damage;
     }
 }
