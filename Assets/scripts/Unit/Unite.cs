@@ -33,9 +33,4 @@ public abstract class Unite : MonoBehaviour
         MaxAtk = maxatk;
         MaxDef = maxdef;
     }
-
-    public abstract void attack();
-
-    public abstract void move();
-
 }

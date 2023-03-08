@@ -2,53 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class infant : Unite
+public class infant : MonoBehaviour
 {
-    public GameManager gameManager;
+    public int Deplacement;
+    public int Pv;
+    public int Atk;
+    public int Def;
+    public int MaxPv;
+
     public infant()
     {
-        Deplacement = base.Deplacement;
-        Pv = base.Pv;
-        Atk = base.Atk;
-        Def = base.Def;
+        Deplacement = 5;
+        Pv = 15;
+        Atk = 7;
+        Def = 4;
         MaxPv = Pv;
-        MaxAtk = Atk;
-        MaxDef = Def;
+
     }
 
-    public infant(int dep, int pv, int atk, int def)
+    public infant(int dep, int pv, int atk, int def, int maxpv, int maxatk, int maxdef)
     {
         Deplacement = dep;
         Pv = pv;
         Atk = atk;
         Def = def;
-    }
-    public override void attack()
-    {
-        if (Pv - Atk > 0)
-        {
-            Pv = Pv - Atk;
-        }
-        else
-        {
-            Pv = 0;
-            Destroy(this.gameObject);
-            print("Vous êtes mort");
-            gameManager.perso_player--;
-        }
-    }
-    public override void move()
-    {
+        MaxPv = maxpv;
 
     }
-    void Update()
-    {
-        if (Input.GetKeyDown("space"))
-        {
-            attack();
-            print (Pv);
-            
-        }
-    }
 
+    public void setPv(int damage)
+    {
+        if (damage <= 0)
+        {
+            damage = 0;
+        }
+        Debug.Log(damage);
+        Pv -= damage;
+    }
 }
+
