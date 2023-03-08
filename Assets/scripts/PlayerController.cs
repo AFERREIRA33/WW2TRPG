@@ -97,6 +97,16 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
+            if (hit.transform.gameObject.tag == "ennemy")
+            {
+                attack.attackfunction(hit.transform.gameObject.name, transform.gameObject.name);
+                while (nameGrid > 0 || GameObject.Find("moveCell" + nameGrid))
+                {
+                    deleteGridB();
+                }
+                nameGrid = 0;
+                gridCreate = false;
+            }
             mousePosition = hit.point;
             if (Mathf.Round(mousePosition.x) >= 0 && Mathf.Round(mousePosition.z) >= 0)
             {
