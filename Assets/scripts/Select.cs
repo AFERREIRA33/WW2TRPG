@@ -18,11 +18,6 @@ public class Select : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            action = true;
-            Debug.Log("Reset");
-        }
     }
     private void OnMouseEnter()
     {
@@ -37,8 +32,6 @@ public class Select : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        Debug.Log("is select : " + gameManager.isSelect);
-        Debug.Log("action : " + action);
         if (action && !gameManager.isSelect)
         {
             gameManager.isSelect = !gameManager.isSelect;
@@ -51,4 +44,5 @@ public class Select : MonoBehaviour
     {
         render.material.color = Color.white;
     }
+ 
 }
