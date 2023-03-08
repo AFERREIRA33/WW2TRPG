@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public Transform planeMove;
     public int move;
     public PlaceObjectOnGrid grid;
-
+    public GameManager gameManager;
     public NavMeshAgent agent;
     private Vector3 mousePosition;
     public Vector3 destination;
@@ -123,8 +123,11 @@ public class PlayerController : MonoBehaviour
                     nameGrid = 0;
                     gridCreate = false;
                     s.select = false;
+                    gameManager.perso_turn--;
+                    Debug.Log(gameManager.perso_turn);
                 }
             }
         }
+        
     }
 }
