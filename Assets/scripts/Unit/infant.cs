@@ -5,7 +5,6 @@ using UnityEngine;
 public class infant : Unite
 {
     public GameManager gameManager;
-    public Enemy enemy;
     public GameObject select_enemy = null;
     public infant()
     {
@@ -36,7 +35,7 @@ public class infant : Unite
         {
             Pv = 0;
             Destroy(this.gameObject);
-            print("Vous êtes mort");
+            print("Vous ï¿½tes mort");
             gameManager.perso_player--;
         }
     }

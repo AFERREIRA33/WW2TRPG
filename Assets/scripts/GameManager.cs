@@ -6,13 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public int perso_player = 2;
     public int perso_enemy = 1;
-    public int perso_turn = perso_player;
+    public int perso_turn = 2;
+    public bool isSelect = false;
     void Start()
     {
         
     }
-
-    
     void Update()
     {
         if (Dead() == true) { Debug.Log("Perdu"); }

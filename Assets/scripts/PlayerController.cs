@@ -41,7 +41,6 @@ public class PlayerController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 playerMove();
-                s.select = false;
             }
         }
         
@@ -67,7 +66,6 @@ public class PlayerController : MonoBehaviour
                 {
                     PlaneCreate(new Vector3(wP.x, wP.y, wP.z - j));
                     PlaneCreate(new Vector3(wPR.x, wPR.y, wPR.z - j));
-                    
                 }
             }
             line--;
@@ -75,12 +73,14 @@ public class PlayerController : MonoBehaviour
     }
     private void PlaneCreate(Vector3 wP)
     {
-        print(grid.height);
-        print(grid.width);
         if (wP.x >= 0 && wP.z >= 0 && wP.x < grid.height && wP.z < grid.width)
         {
-            Transform obj = Instantiate(planeMove, wP, Quaternion.identity);
-            obj.name = "moveCell" + nameGrid;
+            Collider[] intersecting = Physics.OverlapSphere(wP, 0.01f);
+            if (intersecting.Length == 0)
+            {
+                Transform obj = Instantiate(planeMove, wP, Quaternion.identity);
+                obj.name = "moveCell" + nameGrid;
+            }
         }
         nameGrid++;
     }
@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
         GameObject obj = GameObject.Find("moveCell" + nameGrid);
         Destroy(obj);
         nameGrid--;
+        s.gameManager.isSelect = false;
     }
     private void playerMove()
     {
@@ -110,6 +111,7 @@ public class PlayerController : MonoBehaviour
                     }
                     nameGrid = 0;
                     gridCreate = false;
+                    s.select = false;
                 }
             }
         }
