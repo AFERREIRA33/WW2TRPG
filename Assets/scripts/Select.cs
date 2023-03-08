@@ -32,7 +32,7 @@ public class Select : MonoBehaviour
         {
             if (action)
             {
-                render.material.color = Color.green;
+                transform.GetChild(1).GetComponent<Renderer>().material.color = Color.green;
             }
         }
     }
@@ -50,6 +50,6 @@ public class Select : MonoBehaviour
     }
     private void OnMouseExit()
     {
-        render.material.color = Color.white;
+        transform.GetChild(1).GetComponent<Renderer>().material.color = Color.clear;
     }
 }

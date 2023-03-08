@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour
                 }
                 nameGrid = 0;
                 gridCreate = false;
+                s.select = false;
             }
             mousePosition = hit.point;
             if (Mathf.Round(mousePosition.x) >= 0 && Mathf.Round(mousePosition.z) >= 0)
