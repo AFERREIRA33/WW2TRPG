@@ -12,7 +12,6 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     public Select s;
-
     public Camera cam;
     public Transform planeMove;
     public int move;

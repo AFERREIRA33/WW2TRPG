@@ -5,6 +5,8 @@ using UnityEngine;
 public class infant : Unite
 {
     public GameManager gameManager;
+    public Enemy enemy;
+    public GameObject select_enemy = null;
     public infant()
     {
         Deplacement = base.Deplacement;
@@ -14,6 +16,7 @@ public class infant : Unite
         MaxPv = Pv;
         MaxAtk = Atk;
         MaxDef = Def;
+
     }
 
     public infant(int dep, int pv, int atk, int def)
@@ -44,7 +47,9 @@ public class infant : Unite
     void Update()
     {
         if (Input.GetKeyDown("space"))
+            
         {
+            if (select_enemy != null)
             attack();
             print (Pv);
             

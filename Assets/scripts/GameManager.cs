@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int perso_player = 10;
-    public int perso_enemy = 10;
+    public int perso_player = 2;
+    public int perso_enemy = 1;
+    public int perso_turn = perso_player;
     void Start()
     {
         
