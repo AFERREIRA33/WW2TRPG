@@ -66,8 +66,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a8dce97bc9a346e43be35d2564be9b20, type: 2}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -141,6 +140,7 @@ MonoBehaviour:
   planeMove: {fileID: 8438859764419163685, guid: 9837cde6bfe0e9549bc64b84d66efbb2, type: 3}
   move: 4
   grid: {fileID: 0}
+  gameManager: {fileID: 0}
   agent: {fileID: 789033860568079144}
   destination: {x: 0, y: 0, z: 0}
 --- !u!114 &317749980902589254
