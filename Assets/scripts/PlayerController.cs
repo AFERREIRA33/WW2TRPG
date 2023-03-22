@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public NavMeshAgent agent;
     private Vector3 mousePosition;
     public Vector3 destination;
+    public Attack attack;
 
     private int nameGrid = 0;
     private bool gridCreate = false;
@@ -43,18 +44,18 @@ public class PlayerController : MonoBehaviour
                 playerMove();
             }
         }
-        
-        
+
+
     }
     private void MoveGrid()
     {
-        var line = move+1;
-        for (int i = 0; i < move+1; i++)
+        var line = move + 1;
+        for (int i = 0; i < move + 1; i++)
         {
-            Vector3 wP = new Vector3(transform.position.x+ i, 0.2f, transform.position.z);
+            Vector3 wP = new Vector3(transform.position.x + i, 0.2f, transform.position.z);
             Vector3 wPR = new Vector3(transform.position.x - i, 0.2f, transform.position.z);
             PlaneCreate(wP);
-            if(i > 0)
+            if (i > 0)
             {
                 PlaneCreate(wPR);
             }
@@ -62,7 +63,7 @@ public class PlayerController : MonoBehaviour
             {
                 PlaneCreate(new Vector3(wP.x, wP.y, wP.z + j));
                 PlaneCreate(new Vector3(wPR.x, wPR.y, wPR.z + j));
-                if(line >= 1)
+                if (line >= 1)
                 {
                     PlaneCreate(new Vector3(wP.x, wP.y, wP.z - j));
                     PlaneCreate(new Vector3(wPR.x, wPR.y, wPR.z - j));
@@ -99,7 +100,7 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.transform.gameObject.tag == "ennemy")
             {
-                attack.attackfunction(hit.transform.gameObject.name, transform.gameObject.name);
+                attack.attackfunction(hit.transform.gameObject);
                 while (nameGrid > 0 || GameObject.Find("moveCell" + nameGrid))
                 {
                     deleteGridB();
@@ -116,7 +117,7 @@ public class PlayerController : MonoBehaviour
                 if (hit.transform.name.Contains("moveCell"))
                 {
                     destination = new Vector3(Mathf.Round(mousePosition.x), 0.5f, Mathf.Round(mousePosition.z));
-                    
+
                     agent.SetDestination(destination);
                     while (nameGrid > 0 || GameObject.Find("moveCell" + nameGrid))
                     {
@@ -130,6 +131,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        
+
     }
 }

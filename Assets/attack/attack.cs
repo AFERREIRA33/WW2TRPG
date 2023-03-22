@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class attack : MonoBehaviour
+public class Attack : MonoBehaviour
 {
+    public GameManager gameManager;
 
-    static public void attackfunction(string h, string v)
+     public void attackfunction(GameObject h)
     {
-        GameObject go = GameObject.Find(h);
-        GameObject goactual = GameObject.Find(v);
-        if (go)
+        GameObject v = transform.gameObject;
+        if (h)
         {
-            go.GetComponent<infant>().setPv(goactual.GetComponent<infant>().Atk - go.GetComponent<infant>().Def);
-            if(go.GetComponent<infant>().Pv<=0)
+            h.GetComponent<infant>().setPv(v.GetComponent<infant>().Atk - h.GetComponent<infant>().Def);
+            Debug.Log(h.GetComponent<infant>().Pv);
+            if(h.GetComponent<infant>().Pv<=0)
             {
-                Destroy(go);
+                gameManager.Death();
+                Destroy(h);
+                
             }
         }
 

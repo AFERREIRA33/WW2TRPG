@@ -11,13 +11,15 @@ public class GameManager : MonoBehaviour
     public bool isSelect = false;
     public GameObject[] allPlayer;
     public TMP_Text txtEndTurn;
-    private void Start()
+    public void Start()
     {
         allPlayer = GameObject.FindGameObjectsWithTag("Player");
         perso_player = 2;
-        perso_enemy = 1;
+        perso_enemy = 2;
         perso_turn = 2;
+
     }
+
     void Update()
     {
 
@@ -64,5 +66,9 @@ public class GameManager : MonoBehaviour
         else{
             txtEndTurn.SetText("il reste " + perso_turn + " qui n'ont pas encore jouer.");
        }
+    }
+    public void Death()
+    {
+        perso_enemy--;
     }
 }
