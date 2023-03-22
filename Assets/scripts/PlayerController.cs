@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public Select s;
     public Camera cam;
     public Transform planeMove;
-    public int move;
+    public float move;
     public PlaceObjectOnGrid grid;
     public GameManager gameManager;
     public NavMeshAgent agent;
@@ -98,7 +98,9 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform.gameObject.tag == "ennemy")
+            mousePosition = hit.point;
+
+            if (hit.transform.gameObject.tag == "ennemy" && mousePosition.x < transform.position.x + move - 0.6 && mousePosition.x > transform.position.x - move + 0.6 && mousePosition.z < transform.position.z + move - 0.6 && mousePosition.z > transform.position.z - move + 0.6)
             {
                 attack.attackfunction(hit.transform.gameObject);
                 while (nameGrid > 0 || GameObject.Find("moveCell" + nameGrid))
@@ -111,7 +113,6 @@ public class PlayerController : MonoBehaviour
                 gameManager.perso_turn--;
                 Debug.Log(gameManager.perso_turn);
             }
-            mousePosition = hit.point;
             if (Mathf.Round(mousePosition.x) >= 0 && Mathf.Round(mousePosition.z) >= 0)
             {
                 if (hit.transform.name.Contains("moveCell"))
