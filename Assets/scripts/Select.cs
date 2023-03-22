@@ -19,6 +19,11 @@ public class Select : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            action = true;
+            
+        }
     }
     private void OnMouseEnter()
     {

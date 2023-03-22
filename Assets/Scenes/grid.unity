@@ -449,6 +449,8 @@ GameObject:
   - component: {fileID: 775778475}
   - component: {fileID: 775778474}
   - component: {fileID: 775778478}
+  - component: {fileID: 775778479}
+  - component: {fileID: 775778480}
   m_Layer: 0
   m_Name: ennemy1
   m_TagString: ennemy
@@ -551,6 +553,7 @@ MonoBehaviour:
   Atk: 7
   Def: 4
   MaxPv: 15
+<<<<<<< HEAD
 --- !u!1001 &802968099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -694,6 +697,45 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 4187d10f282f3d442895892014a08284, type: 3}
+=======
+--- !u!195 &775778479
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775778473}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &775778480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775778473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1926e4534c33f8e4187a1d3d0d331561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 775778479}
+  destination: {x: 0, y: 0, z: 0}
+  allEnnemies: []
+>>>>>>> origin/AI_Ennemy
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +987,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perso_player: 10
   perso_enemy: 10
+<<<<<<< HEAD
   perso_turn: 0
+=======
+  perso_turn: 2
+>>>>>>> origin/AI_Ennemy
   isSelect: 0
   allPlayer: []
   txtEndTurn: {fileID: 11892040}
@@ -980,7 +1026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b985c097327ba874ca3d1eb8abbb81a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1768547730072870146
+--- !u!114 &1768547730072870152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
