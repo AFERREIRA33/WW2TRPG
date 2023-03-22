@@ -1,3 +1,4 @@
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,20 +12,29 @@ public class GameManager : MonoBehaviour
     public bool isSelect = false;
     public GameObject[] allPlayer;
     public TMP_Text txtEndTurn;
+    public TMP_Text live;
+    public Image def;
+    public Image vic;
     public void Start()
     {
         allPlayer = GameObject.FindGameObjectsWithTag("Player");
         perso_player = 2;
         perso_enemy = 2;
         perso_turn = 2;
-
+        
     }
 
     void Update()
     {
+        live.SetText("Unitée encore envie: " + perso_player + "\n \n" + "Unitée enemie détecter: " + perso_enemy);
+        
 
-        if (Dead() == true) { Debug.Log("Perdu"); }
-        if (Dead_enemy() == true) { Debug.Log("Gagner"); }
+        if (Dead() == true) {
+            def.enabled = true; 
+        }
+        if (Dead_enemy() == true) {
+            vic.enabled = true; 
+        }
     }
     private bool Dead()
     {
@@ -53,9 +63,9 @@ public class GameManager : MonoBehaviour
     public void end_player_turn()
     {
         if (change_turn_perso() == true){
-             Debug.Log("On change de tour");
-             perso_turn = perso_player;
-             Debug.Log("perso_turn : " + perso_turn);
+            Debug.Log("On change de tour");
+            perso_turn = perso_player;
+            Debug.Log("perso_turn : " + perso_turn);
             Debug.Log("perso_player : " + perso_player);
             txtEndTurn.SetText("");
              foreach (GameObject aPlayer in allPlayer)
