@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public NavMeshAgent agent;
     private Vector3 mousePosition;
     public Vector3 destination;
+    public Attack attack;
 
     private int nameGrid = 0;
     private bool gridCreate = false;
@@ -99,7 +100,7 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.transform.gameObject.tag == "ennemy")
             {
-                attack.attackfunction(hit.transform.gameObject.name, transform.gameObject.name);
+                attack.attackfunction(hit.transform.gameObject);
                 while (nameGrid > 0 || GameObject.Find("moveCell" + nameGrid))
                 {
                     deleteGridB();
