@@ -14,6 +14,7 @@ public class Ennemy_IA : MonoBehaviour
     public Vector3 destination;
     public Vector3 distancemax;
     public GameObject[] allEnnemies;
+    public Attack attack;
 
     void Start()
     {
@@ -41,7 +42,7 @@ public class Ennemy_IA : MonoBehaviour
     private void Ennemymove()
     {
         
-        string att = allEnnemies[0].transform.name;
+        GameObject att = allEnnemies[0];
         float distbettwo = Vector3.Distance(allEnnemies[0].transform.position, transform.position);
         Vector3 destennemy = allEnnemies[0].transform.position;
         foreach (GameObject player in allEnnemies)
@@ -50,12 +51,12 @@ public class Ennemy_IA : MonoBehaviour
             {
                 distbettwo = Vector3.Distance(player.transform.position, transform.position);
                 destennemy = player.transform.position;
-                att = player.transform.name;
+                att = player;
             }
         }
         if (distbettwo <= 4)
         {
-            attack.attackfunction(att,transform.name);
+            attack.attackfunction(att);
             ennmy_turn = false;
         } else
         {
