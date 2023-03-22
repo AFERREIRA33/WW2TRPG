@@ -22,7 +22,7 @@ public class Select : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             action = true;
-            Debug.Log("Reset");
+            
         }
     }
     private void OnMouseEnter()
