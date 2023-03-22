@@ -128,7 +128,6 @@ public class PlayerController : MonoBehaviour
                     gridCreate = false;
                     s.select = false;
                     gameManager.perso_turn--;
-                    Debug.Log(gameManager.perso_turn);
                 }
             }
         }

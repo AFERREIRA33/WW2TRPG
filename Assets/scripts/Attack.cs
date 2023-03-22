@@ -15,9 +15,15 @@ public class Attack : MonoBehaviour
             Debug.Log(h.GetComponent<infant>().Pv);
             if(h.GetComponent<infant>().Pv<=0)
             {
-                gameManager.Death();
-                Destroy(h);
+                if(h.tag == "ennemy")
+                {
+                    gameManager.EnnemyDeath();
+                } else
+                {
+                    gameManager.PlayerDeath();
+                }
                 
+                Destroy(h);
             }
         }
 
