@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: c109e941f0856394286d0d706eaadc52, type: 2}
+--- !u!114 &11892040 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4744306452326496963, guid: 4187d10f282f3d442895892014a08284, type: 3}
+  m_PrefabInstance: {fileID: 802968099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &229423013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -560,6 +571,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: end_player_turn
       objectReference: {fileID: 0}
+    - target: {fileID: 4247970361772183943, guid: 4187d10f282f3d442895892014a08284, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247970361772183943, guid: 4187d10f282f3d442895892014a08284, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247970361772183943, guid: 4187d10f282f3d442895892014a08284, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247970361772183943, guid: 4187d10f282f3d442895892014a08284, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247970361772183943, guid: 4187d10f282f3d442895892014a08284, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247970361772183943, guid: 4187d10f282f3d442895892014a08284, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247970361772183943, guid: 4187d10f282f3d442895892014a08284, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4247970362899055985, guid: 4187d10f282f3d442895892014a08284, type: 3}
       propertyPath: m_Camera
       value: 
@@ -909,6 +948,7 @@ MonoBehaviour:
   perso_turn: 0
   isSelect: 0
   allPlayer: []
+  txtEndTurn: {fileID: 11892040}
 --- !u!4 &2071361024
 Transform:
   m_ObjectHideFlags: 0

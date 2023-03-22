@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     public int perso_turn;
     public bool isSelect = false;
     public GameObject[] allPlayer;
+    public TMP_Text txtEndTurn;
     private void Start()
     {
         allPlayer = GameObject.FindGameObjectsWithTag("Player");
@@ -53,13 +55,14 @@ public class GameManager : MonoBehaviour
              perso_turn = perso_player;
              Debug.Log("perso_turn : " + perso_turn);
             Debug.Log("perso_player : " + perso_player);
-             foreach(GameObject aPlayer in allPlayer)
+            txtEndTurn.SetText("");
+             foreach (GameObject aPlayer in allPlayer)
             {
                 aPlayer.GetComponent<Select>().action = true;
             }
         }
         else{
-             Debug.Log("il reste " + perso_turn + " qui n'ont pas encore jouer.");
+            txtEndTurn.SetText("il reste " + perso_turn + " qui n'ont pas encore jouer.");
        }
     }
 }
