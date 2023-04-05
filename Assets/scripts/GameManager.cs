@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("perso_turn : " + perso_turn);
         Debug.Log("perso_player : " + perso_player);
         txtEndTurn.SetText("");
+        allPlayer = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject aPlayer in allPlayer)
         {
             aPlayer.GetComponent<Select>().action = true;
