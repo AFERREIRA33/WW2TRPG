@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public Image vic;
     public void Start()
     {
-        Invoke("DelayedAction", 5f);
+        
         allPlayer = GameObject.FindGameObjectsWithTag("Player");
         perso_player = 2;
         perso_enemy = 2;
@@ -35,13 +35,12 @@ public class GameManager : MonoBehaviour
         if (Dead() == true) {
             Debug.Log("Dead");
             def.enabled = true;
-            DelayedAction();
+            Invoke("DelayedAction", 5f);
         }
         if (Dead_enemy() == true) {
             Debug.Log("Victoire");
             vic.enabled = true;
-            DelayedAction();
-
+            Invoke("DelayedAction", 5f);
         }
     }
     private bool Dead()
@@ -71,7 +70,7 @@ public class GameManager : MonoBehaviour
     public void DelayedAction()
     {
         Debug.Log("tewt");
-       /// SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
     public void end_player_turn()
     {
