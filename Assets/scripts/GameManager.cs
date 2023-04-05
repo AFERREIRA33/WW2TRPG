@@ -19,25 +19,25 @@ public class GameManager : MonoBehaviour
     public Image vic;
     public void Start()
     {
-        
+
         allPlayer = GameObject.FindGameObjectsWithTag("Player");
-        perso_player = 2;
-        perso_enemy = 2;
-        perso_turn = 2;
-        
+
+
     }
 
     void Update()
     {
-        live.SetText("Unitée encore envie: " + perso_player + "\n \n" + "Unitée enemie détecter: " + perso_enemy);
-        
+        live.SetText("Unitee encore envie: " + perso_player + "\n \n" + "Unitee enemie detecter: " + perso_enemy);
 
-        if (Dead() == true) {
+
+        if (Dead() == true)
+        {
             Debug.Log("Dead");
             def.enabled = true;
             Invoke("DelayedAction", 5f);
         }
-        if (Dead_enemy() == true) {
+        if (Dead_enemy() == true)
+        {
             Debug.Log("Victoire");
             vic.enabled = true;
             Invoke("DelayedAction", 5f);
@@ -70,27 +70,44 @@ public class GameManager : MonoBehaviour
     public void DelayedAction()
     {
         Debug.Log("tewt");
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
     public void end_player_turn()
     {
-        if (change_turn_perso() == true){
-            Debug.Log("On change de tour");
-            perso_turn = perso_player;
-            Debug.Log("perso_turn : " + perso_turn);
-            Debug.Log("perso_player : " + perso_player);
-            txtEndTurn.SetText("");
-             foreach (GameObject aPlayer in allPlayer)
-            {
-                aPlayer.GetComponent<Select>().action = true;
-            }
+        if (change_turn_perso() == true)
+        {
+            GameObject[] allEnnemies = GameObject.FindGameObjectsWithTag("ennemy");
+            StartCoroutine(Delay(allEnnemies));
         }
-        else{
+        else
+        {
             txtEndTurn.SetText("il reste " + perso_turn + " qui n'ont pas encore jouer.");
-       }
+        }
     }
-    public void Death()
+    public void EnnemyDeath()
     {
         perso_enemy--;
+    }
+    public void PlayerDeath()
+    {
+        perso_player--;
+    }
+    IEnumerator Delay(GameObject[] allEnnemies)
+    {
+        foreach (GameObject ennemy in allEnnemies)
+        {
+            ennemy.GetComponent<Ennemy_IA>().Turn();
+            yield return new WaitForSeconds(3);
+        }
+        Debug.Log("On change de tour");
+        perso_turn = perso_player;
+        Debug.Log("perso_turn : " + perso_turn);
+        Debug.Log("perso_player : " + perso_player);
+        txtEndTurn.SetText("");
+        foreach (GameObject aPlayer in allPlayer)
+        {
+            aPlayer.GetComponent<Select>().action = true;
+        }
+
     }
 }

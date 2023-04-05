@@ -48,6 +48,7 @@ public class Ennemy_IA : MonoBehaviour
                 att = player;
             }
         }
+        
         if (distbettwo <= 4)
         {
             attack.attackfunction(att);
@@ -55,8 +56,10 @@ public class Ennemy_IA : MonoBehaviour
         } else
         {
             
-            float posx = Mathf.Clamp(destennemy.x, 4, destennemy.x-1f);
-            float posz = Mathf.Clamp(destennemy.z, 4, destennemy.z-1f);
+            float posx = Mathf.Clamp(destennemy.x-1f, destination.x, destination.x+4f);
+            float posz = Mathf.Clamp(destennemy.z-1f, destination.z, destination.z+4f);
+            Debug.Log("posx : " +posx);
+            Debug.Log("posz : " + posz);
             destination = new Vector3(posx,0.5f,posz);
             agent.SetDestination(destination);
             ennemy_turn = false;
