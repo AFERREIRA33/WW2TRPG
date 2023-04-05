@@ -35,36 +35,38 @@ public class Ennemy_IA : MonoBehaviour
 
     private void Ennemymove()
     {
-        
-        GameObject att = allEnnemies[0];
-        float distbettwo = Vector3.Distance(allEnnemies[0].transform.position, transform.position);
-        Vector3 destennemy = allEnnemies[0].transform.position;
-        foreach (GameObject player in allEnnemies)
+        if (allEnnemies.Length >0)
         {
-            if (Vector3.Distance(player.transform.position,transform.position) <= distbettwo)
+            GameObject att = allEnnemies[0];
+            float distbettwo = Vector3.Distance(allEnnemies[0].transform.position, transform.position);
+            Vector3 destennemy = allEnnemies[0].transform.position;
+            foreach (GameObject player in allEnnemies)
             {
-                distbettwo = Vector3.Distance(player.transform.position, transform.position);
-                destennemy = player.transform.position;
-                att = player;
+                if (Vector3.Distance(player.transform.position, transform.position) <= distbettwo)
+                {
+                    distbettwo = Vector3.Distance(player.transform.position, transform.position);
+                    destennemy = player.transform.position;
+                    att = player;
+                }
+            }
+
+            if (distbettwo <= 4)
+            {
+                attack.attackfunction(att);
+                ennemy_turn = false;
+            }
+            else
+            {
+
+                float posx = Mathf.Clamp(destennemy.x - 1f, destination.x, destination.x + 4f);
+                float posz = Mathf.Clamp(destennemy.z - 1f, destination.z, destination.z + 4f);
+                Debug.Log("posx : " + posx);
+                Debug.Log("posz : " + posz);
+                destination = new Vector3(posx, 0.5f, posz);
+                agent.SetDestination(destination);
+                ennemy_turn = false;
             }
         }
-        
-        if (distbettwo <= 4)
-        {
-            attack.attackfunction(att);
-            ennemy_turn = false;
-        } else
-        {
-            
-            float posx = Mathf.Clamp(destennemy.x-1f, destination.x, destination.x+4f);
-            float posz = Mathf.Clamp(destennemy.z-1f, destination.z, destination.z+4f);
-            Debug.Log("posx : " +posx);
-            Debug.Log("posz : " + posz);
-            destination = new Vector3(posx,0.5f,posz);
-            agent.SetDestination(destination);
-            ennemy_turn = false;
-        }
-
     }
     
     public void Turn()
