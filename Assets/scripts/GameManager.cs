@@ -12,9 +12,13 @@ public class GameManager : MonoBehaviour
     public int perso_enemy;
     public int perso_turn;
     public bool isSelect = false;
+    public List<int> enemy_life;
+    public List<int> player_life;
     public GameObject[] allPlayer;
     public TMP_Text txtEndTurn;
     public TMP_Text live;
+    public TMP_Text life_point_enemy;
+    public TMP_Text life_point_player;
     public Image def;
     public Image vic;
     public void Start()
@@ -29,6 +33,8 @@ public class GameManager : MonoBehaviour
     {
         live.SetText("Unitee encore envie: " + perso_player + "\n \n" + "Unitee enemie detecter: " + perso_enemy);
 
+        life_point_enemy.SetText(Enemie_Life());
+        life_point_player.SetText(Player_Life());
 
         if (Dead() == true)
         {
@@ -110,5 +116,29 @@ public class GameManager : MonoBehaviour
             aPlayer.GetComponent<Select>().action = true;
         }
 
+    }
+    public string Enemie_Life()
+    {
+        GameObject[] allEnnemies = GameObject.FindGameObjectsWithTag("ennemy");
+        string res = "";
+        int count = 1;
+        foreach (GameObject ennemy in allEnnemies)
+        {
+            res += "Ennemy " + count +" : "+ ennemy.GetComponent<infant>().Pv + " Hp \n \n";
+            count++;
+        }
+        return res;
+    }
+    public string Player_Life()
+    {
+        GameObject[] allPlayer = GameObject.FindGameObjectsWithTag("Player");
+        string res = "";
+        int count = 1;
+        foreach (GameObject Player in allPlayer)
+        {
+            res += "Player " + count + " : " + Player.GetComponent<infant>().Pv + " Hp \n \n";
+            count++;
+        }
+        return res;
     }
 }
