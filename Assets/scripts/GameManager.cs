@@ -91,19 +91,21 @@ public class GameManager : MonoBehaviour
     public void PlayerDeath()
     {
         perso_player--;
+        
     }
     IEnumerator Delay(GameObject[] allEnnemies)
     {
         foreach (GameObject ennemy in allEnnemies)
         {
             ennemy.GetComponent<Ennemy_IA>().Turn();
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(5);
         }
         Debug.Log("On change de tour");
         perso_turn = perso_player;
         Debug.Log("perso_turn : " + perso_turn);
         Debug.Log("perso_player : " + perso_player);
         txtEndTurn.SetText("");
+        allPlayer = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject aPlayer in allPlayer)
         {
             aPlayer.GetComponent<Select>().action = true;
