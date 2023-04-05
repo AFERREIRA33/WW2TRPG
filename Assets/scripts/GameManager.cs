@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
     public Image vic;
     public void Start()
     {
+        Invoke("DelayedAction", 5f);
         allPlayer = GameObject.FindGameObjectsWithTag("Player");
         perso_player = 2;
         perso_enemy = 2;
@@ -30,10 +33,15 @@ public class GameManager : MonoBehaviour
         
 
         if (Dead() == true) {
-            def.enabled = true; 
+            Debug.Log("Dead");
+            def.enabled = true;
+            DelayedAction();
         }
         if (Dead_enemy() == true) {
-            vic.enabled = true; 
+            Debug.Log("Victoire");
+            vic.enabled = true;
+            DelayedAction();
+
         }
     }
     private bool Dead()
@@ -59,6 +67,11 @@ public class GameManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+    public void DelayedAction()
+    {
+        Debug.Log("tewt");
+       /// SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
     public void end_player_turn()
     {
