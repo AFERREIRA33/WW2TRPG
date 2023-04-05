@@ -9,6 +9,7 @@ public class Select : MonoBehaviour
     public bool action;
     public bool select;
     public GameManager gameManager;
+    public AudioSource Selectsound;
 
     void Start()
     {
@@ -33,6 +34,10 @@ public class Select : MonoBehaviour
             if (action)
             {
                 transform.GetChild(1).GetComponent<Renderer>().material.color = Color.green;
+                if (Selectsound.isPlaying == false)
+                {
+                    Selectsound.Play();
+                }
             }
         }
     }
