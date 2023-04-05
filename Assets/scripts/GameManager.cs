@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
+
 public class GameManager : MonoBehaviour
 {
     public int perso_player;
@@ -21,11 +22,13 @@ public class GameManager : MonoBehaviour
     public TMP_Text life_point_player;
     public Image def;
     public Image vic;
+    public AudioSource MainMusic;
+    public AudioSource victory;
+    public AudioSource defeat;
     public void Start()
     {
-
         allPlayer = GameObject.FindGameObjectsWithTag("Player");
-
+        
 
     }
 
@@ -37,15 +40,26 @@ public class GameManager : MonoBehaviour
         life_point_player.SetText(Player_Life());
 
         if (Dead() == true)
-        {
+        { 
             Debug.Log("Dead");
             def.enabled = true;
+            if (defeat.isPlaying == false)
+            {
+                MainMusic.Stop();
+                defeat.Play();
+            }
             Invoke("DelayedAction", 5f);
         }
         if (Dead_enemy() == true)
         {
             Debug.Log("Victoire");
             vic.enabled = true;
+            if (victory.isPlaying == false)
+            {
+                MainMusic.Stop();
+                victory.Play();
+            }
+
             Invoke("DelayedAction", 5f);
         }
     }
