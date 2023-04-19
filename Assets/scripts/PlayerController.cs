@@ -81,6 +81,12 @@ public class PlayerController : MonoBehaviour
             {
                 Transform obj = Instantiate(planeMove, wP, Quaternion.identity);
                 obj.name = "moveCell" + nameGrid;
+            } else
+            {
+                foreach(Collider c in intersecting)
+                {
+                    Debug.Log(c.gameObject);
+                }
             }
         }
         nameGrid++;

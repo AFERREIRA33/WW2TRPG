@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5234262e7871c4b43b2be7afac1a6226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s: {fileID: 0}
+  s: {fileID: 317749980902589254}
   cam: {fileID: 0}
   planeMove: {fileID: 8438859764419163685, guid: 9837cde6bfe0e9549bc64b84d66efbb2, type: 3}
   move: 4
@@ -161,6 +161,7 @@ MonoBehaviour:
   action: 0
   select: 0
   gameManager: {fileID: 0}
+  Selectsound: {fileID: 5020936903431079173, guid: 5a4fd51cb7932b343af2c10fab5944e9, type: 3}
 --- !u!114 &6531503636260744135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  Sound: {fileID: 5892011788378646396, guid: 39351b223616194488cc1af32a6a062e, type: 3}
 --- !u!114 &5903901130198168671
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1060,6 +1060,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c35ad1f464012c4e9253b6819496de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1449600774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 843553135551587942, guid: 4187d10f282f3d442895892014a08284, type: 3}
+  m_PrefabInstance: {fileID: 802968099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1648837299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4670083176895782608, guid: 1894f4a4cdb004440a196abe14cda992, type: 3}
@@ -1205,6 +1216,17 @@ Transform:
   m_Father: {fileID: 524539780}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1888744079 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7410979020589681674, guid: 4187d10f282f3d442895892014a08284, type: 3}
+  m_PrefabInstance: {fileID: 802968099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1948811635 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 373273936101573565, guid: 4187d10f282f3d442895892014a08284, type: 3}
@@ -1268,9 +1290,13 @@ MonoBehaviour:
   perso_enemy: 1
   perso_turn: 1
   isSelect: 0
+  enemy_life: 
+  player_life: 
   allPlayer: []
   txtEndTurn: {fileID: 1992307867}
   live: {fileID: 1015980255}
+  life_point_enemy: {fileID: 1888744079}
+  life_point_player: {fileID: 1449600774}
   def: {fileID: 1948811635}
   vic: {fileID: 561313837}
   MainMusic: {fileID: 2071361027}

@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  Sound: {fileID: 5892011788378646396, guid: 39351b223616194488cc1af32a6a062e, type: 3}
 --- !u!114 &5156833846465155481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +149,7 @@ MonoBehaviour:
   destination: {x: 0, y: 0, z: 0}
   distancemax: {x: 0, y: 0, z: 0}
   allEnnemies: []
-  attack: {fileID: 0}
+  attack: {fileID: 2548177415661913806}
   manager: {fileID: 0}
 --- !u!195 &767266222908155163
 NavMeshAgent:
